@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for fs-w11-pokedex on 2024-02-22T19:59:31+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'fs-w11-pokedex'
+primary_region = 'arn'
+
+[build]
+
+[env]
+  PORT = "3000"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[processes]
+  app = "node app.js"
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
