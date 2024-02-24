@@ -9,7 +9,7 @@ primary_region = 'arn'
 [build]
 
 [deploy]
-  strategy = "bluegreen"
+  strategy = "canary"
 
 [env]
   PORT = "3000"
