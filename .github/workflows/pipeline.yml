@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - uses: superfly/flyctl-actions@1.5
+      - uses: superfly/flyctl-actions/setup-flyctl@v0.2.9
       - name: Install dependencies
         run: npm install
       - name: Check style
