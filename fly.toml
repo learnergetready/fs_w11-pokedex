@@ -9,7 +9,7 @@ primary_region = 'arn'
 [build]
 
 [deploy]
-  strategy = "canary"
+  strategy = "bluegreen"
 
 [env]
   PORT = "3000"
@@ -23,8 +23,8 @@ primary_region = 'arn'
   processes = ['app']
 
 [[http_service.checks]]
-  grace_period = "10s"
-  interval = "30s"
+  grace_period = "5s"
+  interval = "6s"
   method = "GET"
   timeout = "5s"
   path = "/health"
