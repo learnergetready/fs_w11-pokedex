@@ -2,14 +2,11 @@ name: Deployment pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
-    types:
-      - opened
-      - synchronize
+    branches: [main]
+    types: [opened, synchronize]
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -26,7 +23,8 @@ jobs:
       - name: Check style
         run: npm run eslint
       - run: npm run build
-      - run: npm test
+      - name: unit tests
+        run: npm test
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with: 
@@ -34,6 +32,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
       - name: deploy to fly.io
+        if: ${{ github.event_name == 'push' }}
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
