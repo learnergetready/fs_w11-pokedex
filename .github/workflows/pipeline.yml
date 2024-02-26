@@ -51,3 +51,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+  discord_bot:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Actions Status Discord
+        uses: sarisia/actions-status-discord@c242b3a624337aa95f4727dd779a62f408c69e91
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+
