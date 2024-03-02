@@ -69,6 +69,3 @@ jobs:
           content: |
             Hey <@1211681226826719236>! A new pokedex got deployed succesfully.
             [Link to the commit](${{github.event.commits[0].url}})
-  testing:
-    needs: [simple_deployment_pipeline]
-    runs-on: ubuntu-20.04
