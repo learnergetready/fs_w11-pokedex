@@ -44,7 +44,7 @@ jobs:
           status: ${{ job.status }}
           content: |
             Hey <@1211681226826719236>! A pokedex build failed just now.
-            [Link to some commit](https://github.com/learnergetready/fs_w11-pokedex/pull/6/commits/101a8e789c2ad60b794c8850423dec3d1de40b50)
+            [Link to the commit](https://github.com/learnergetready/fs_w11-pokedex/commits/${{ github.sha }})
   tag_release:
     if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
     needs: [simple_deployment_pipeline]
@@ -67,4 +67,8 @@ jobs:
           status: ${{ job.status }}
           content: |
             Hey <@1211681226826719236>! A new pokedex got deployed succesfully.
-            [Link to the commit](${{github.event.commits[0].url}})
+            [Link to the commit](https://github.com/learnergetready/fs_w11-pokedex/commits/${{ github.sha }})
+      - name: github context after tagging
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
