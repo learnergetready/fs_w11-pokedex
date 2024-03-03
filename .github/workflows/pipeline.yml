@@ -68,5 +68,5 @@ jobs:
           status: ${{ job.status }}
           content: |
             Hey <@1211681226826719236>! A new version of Pokédex got deployed succesfully.
-            It was a ${{ steps.tagging.outputs.part }} update to version ${{steps.tagging.outputs.new_tag}}
+            It was a `${{ steps.tagging.outputs.part }}` update to version `${{steps.tagging.outputs.new_tag}}`
             [Link to the commit](https://github.com/learnergetready/fs_w11-pokedex/commit/${{ github.sha }})
