@@ -1,9 +1,8 @@
 name: Periodic health check
 
 on:
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize]
+  schedule:
+    - cron: '8,38 * * * *'
 
 jobs:
   periodic_health_check:
