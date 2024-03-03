@@ -12,7 +12,4 @@ jobs:
       - name: URL health check
         uses: Jtalk/url-health-check-action@b716ccb6645355dd9fcce8002ce460e5474f7f00
         with:
-          url: https://fs-w11-pokedex.fly.dev/healthwrongurl
-          max-attempts: 3
-          retry-delay: 10s
-        
+          url: https://fs-w11-pokedex.fly.dev/health
