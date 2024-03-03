@@ -1,3 +1,6 @@
+The app is running at: https://fs-w11-pokedex.fly.dev
+The other repository for assignment 11.20 is: https://github.com/learnergetready/fs_w11-other
+
 # Full Stack open CI/CD
 
 This repository is used for the CI/CD module of the Full stack open course
