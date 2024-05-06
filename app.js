@@ -6,7 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 5000 //eslint-disable-line no-undef
 
 app.get('/version', (req, res) => {
-  res.send('21') // change this string to ensure a new version deployed
+  res.send('22') // change this string to ensure a new version deployed
 })
 
 app.get('/health', (req, res) => {
